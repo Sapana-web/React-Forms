@@ -3,6 +3,7 @@ import ProjectList from './ProjectList';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 export default class Project extends Component {
 
     constructor(props) {
@@ -16,6 +17,15 @@ export default class Project extends Component {
                 projectStatus: '',
                 startDate: '',
                 endDate: ''
+            },
+            taskDetails: {
+                title: '',
+                description: '',
+                dueDate: new Date(),
+                priority: '',
+                createdAt: '',
+                id: '',
+                currentState: 'pending'
             }
         }
     }
@@ -29,6 +39,14 @@ export default class Project extends Component {
         })
     }
 
+    addTaskDetails = (item) => {
+        let tasksList = this.state.tasksList;
+        let currentDate = new Date()
+        item.id = currentDate.getTime() + Math.random();
+        item.createdAt = currentDate
+        tasksList.unshift(item)
+        this.setState({ tasksList: tasksList })
+    }
 
 
     render() {
@@ -36,7 +54,7 @@ export default class Project extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-12 text-center">
-                        <h3>WSR Application</h3>
+                        <h3>Project Details</h3>
                     </div>
                     
                 </div>

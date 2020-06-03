@@ -15,3 +15,10 @@
 .nav-link {
     cursor: pointer;
 }
+.react-datepicker-wrapper {
+    width: 100%;
+}
+#projectModalBody .card .card-header {
+    padding: 0px;
+    cursor: pointer;
+}
